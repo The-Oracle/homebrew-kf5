@@ -13,9 +13,7 @@ class Kf5Kdeui < Formula
   depends_on "gettext" => :build
 
   def install
-    args = std_cmake_args
-
-    system "cmake", ".", *args
+    system "cmake", "-G", "Unix Makefiles", "..", *std_cmake_args
     system "make", "install"
     prefix.install "install_manifest.txt"
   end
